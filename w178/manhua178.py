@@ -17,7 +17,7 @@ def loadDir(u):
     ss = ''
     for k,v in links:
         if k[:4] != 'http':
-            k = 'http://manhua.178.com' + k
+            k = 'http://www.dmzj.com' + k
         a = 'mh178 -d %s %s' % (k,v)
         print a
         ss += a + '\n'
@@ -49,7 +49,7 @@ def downImg(u):
     #return;
     title = [line for line in content if line[:21]=='var g_chapter_name = '][0][22:-2]
     
-    domain = u'http://imgfast.manhua.178.com/'
+    domain = u'http://imgfast.dmzj.com/'
     i = 0
     svPaths = []
     for a in ss:
@@ -74,11 +74,11 @@ def main():
     group.add_argument('-l', action="store_true", help='load list from URL')
     group.add_argument('-i', action="store_true", help='show URL info ')
     group.add_argument('-d', action="store_true", help='down imgs from URL')
-    parser.add_argument('URL', nargs=1, help='[http://manhua.178.com/]<xxxx> | URL')
+    parser.add_argument('URL', nargs=1, help='[http://www.dmzj.com/]<xxxx> | URL')
     results = parser.parse_args()
     u = results.URL[0]
     if len(u) < 5 or u[:4] != u'http':
-        u = 'http://manhua.178.com/' + u
+        u = 'http://www.dmzj.com/' + u
     if results.l :
         loadDir(u)
     if results.i:
